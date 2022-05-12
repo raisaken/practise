@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import store from "./ReduxToolkit/app/store";
+import { Provider } from "react-redux";
+import Index from "./UseRef/Timeout";
+import Timeout from "./UseRef/Timeout";
+import DomAccess from "./UseRef/DomAccess";
+import DomAccessChildComp from "./UseRef/DomAccessChildComp";
+import VideoPausePlay from "./UseRef/VideoPausePlay";
+import Test from "./test/Test";
+import Todo from "./UseCallback/Todo";
+// import UseFetch from "./CustomHook/UseFetch";
+import GetData from "./CustomHook/GetData";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <Test/>
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
