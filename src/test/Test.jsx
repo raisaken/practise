@@ -1,11 +1,30 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 function Test() {
-  const ref = useRef();
+  const [users, setUsers] = useState([]);
+  const url = "https://randomuser.me/api";
+  const fetchData = () =>
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUsers(data.results));
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(users);
+
   return (
     <div>
-      <input type="text" ref={ref} />
-      <button onClick={() => ref.current.focus()}>click</button>
+      {users &&
+        users.map((user) => {
+          return (
+            <div key={user.id}>
+              <img src={user.picture.large} alt="" />
+              <p>{user.name.first}</p>
+              <button onClick={fetchData}>Change</button>
+            </div>
+          );
+        })}
     </div>
   );
 }
