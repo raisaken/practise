@@ -14,11 +14,13 @@ import Test from "./test/Test";
 import Todo from "./UseCallback/Todo";
 // import UseFetch from "./CustomHook/UseFetch";
 import GetData from "./CustomHook/GetData";
+import Props from "./Passing event handlers as props/Props";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <Test/>
+    {/* <Test/> */}
+    <Props/>
   </Provider>
 );
 
